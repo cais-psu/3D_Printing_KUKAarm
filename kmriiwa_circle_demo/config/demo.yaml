@@ -1,0 +1,24 @@
+# All lengths in metres, all angles in radians. No absolute robot target.
+# With circle_demo.launch, change radius/layers/layer_step/plane using launch
+# arguments: launch arguments take priority over these YAML defaults.
+radius: 0.02
+layers: 3
+layer_step: 0.005
+samples_per_circle: 60
+# Plane in reference_frame: xy -> layers +Z; yz -> +X; xz -> -Y.
+plane: xy
+# Rigid EE -> future nozzle TCP, expressed in the EE coordinate system.
+# Zero is an explicit placeholder: current link_ee air motion only.
+tcp_offset_xyz: [0.0, 0.0, 0.0]
+tcp_offset_rpy: [0.0, 0.0, 0.0]
+eef_step: 0.003
+# These bound the MoveIt plan/display timing, NOT the original Java speed.
+planning_velocity_scale: 0.1
+planning_acceleration_scale: 0.1
+max_joint_step: 0.25
+max_start_drift: 0.02
+max_state_age: 1.0
+state_timeout: 10.0
+server_timeout: 15.0
+# Keep plan-only latched RViz topics alive until Ctrl+C.
+keep_alive: true

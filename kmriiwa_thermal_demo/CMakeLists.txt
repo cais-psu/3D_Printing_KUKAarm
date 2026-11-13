@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(kmriiwa_thermal_demo)
+find_package(catkin REQUIRED)
+catkin_python_setup()
+catkin_package()
+catkin_install_python(PROGRAMS scripts/thermal_demo.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+install(DIRECTORY config DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+install(FILES README.md COMMANDS.txt LICENSE DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})

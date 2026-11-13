@@ -1,0 +1,48 @@
+KMR iiwa circular dry run
+
+Measured-bed preview (CAD nozzle offset and estimated Z)
+
+From this package directory:
+
+```bash
+PYTHONPATH="$PWD/src" python3 scripts/preview_circle.py --bed config/bed_preview.json --output /tmp/kmriiwa_bed_circle
+```
+
+With the existing ROS interfaces running and the package built as in step 2:
+
+```bash
+roslaunch kmriiwa_circle_demo bed_circle_preview.launch
+```
+
+This launch only plans and displays the bed circles. See README.md for the measurements needed to establish the print height.
+
+Original current-pose dry run
+
+1. From this package directory, generate the offline geometry and run the tests.
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH="$PWD/src" python3 scripts/preview_circle.py --output /tmp/kmriiwa_circle_preview
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH="$PWD/src" python3 -m unittest discover -s tests -v
+```
+
+2. Place the package under src/ in the Catkin workspace. From that workspace root, build it.
+
+```bash
+source /opt/ros/noetic/setup.bash
+catkin_make --pkg kmriiwa_circle_demo
+source devel/setup.bash
+```
+
+3. With the existing Sunrise, KMR iiwa bringup, and MoveIt interfaces available on your configured ROS master, preview the plan in RViz.
+
+```bash
+roslaunch kmriiwa_circle_demo circle_demo.launch
+```
+
+RViz fixed frame is kmriiwa_link_0. Add Path displays for /kmriiwa_circle_demo/tcp_path and /kmriiwa_circle_demo/ee_path and set the MotionPlanning trajectory topic to /kmriiwa_circle_demo/display_planned_path. The default plan starts at the current end-effector pose and draws three circles of 20 mm radius separated by 5 mm lifts. Press Ctrl+C to close the preview.
+
+4. Optional physical execution by the on-site operator after verifying the full preview, clearance, and controller speed. This command replans from the current state and moves the arm. Use the native robot stop if needed. See README.md for the Java backend's timing and cancellation limits.
+
+```bash
+roslaunch kmriiwa_circle_demo circle_demo.launch execute:=true keep_alive:=false
+```

@@ -1,0 +1,34 @@
+Thermal console quick reference
+
+Run from the repository root. Start by reading both boards:
+
+    python3 kmriiwa_thermal_demo/scripts/thermal_demo.py --read-only
+
+At the thermal prompt:
+
+    devices
+    status all
+    status nozzle
+    quit
+
+After verifying the boards, open the Ethernet control session:
+
+    python3 kmriiwa_thermal_demo/scripts/thermal_demo.py
+
+Enter commands individually at the thermal prompt. Use a nozzle target
+suitable for the installed hotend and filament. Continuous feed requires
+valid temperature feedback, an inactive external gate, and both the
+measured temperature and target at or above 170 C.
+
+    status nozzle
+    fan nozzle 35
+    feed nozzle 1.5
+    feed nozzle 0
+    off all
+    status all
+    quit
+
+Use `feed nozzle 1.5 2` for a two-second jog. If a feed session stops,
+check the last manual feed stop reason with `status nozzle`.
+
+See README.md in this directory for firmware upload and fault behavior.

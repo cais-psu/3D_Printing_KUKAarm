@@ -1,0 +1,16 @@
+{
+  "corners_world_mm": {
+    "top_left": [-198.6, -273.8, 30.8],
+    "top_right": [-198.3, -576.7, 31.3],
+    "bottom_right": [-479.2, -573.6, 33.0],
+    "bottom_left": [-482.0, -275.9, 33.1]
+  },
+  "nozzle_offset_flange_mm": [-60.0, 0.0, 155.7],
+  "flange_abc_deg": [-166.71, 3.78, 177.56],
+  "radius_mm": 20.0,
+  "preview_clearance_mm": 20.0,
+  "minimum_edge_margin_mm": 25.0,
+  "layers": 3,
+  "layer_step_mm": 5.0,
+  "samples_per_circle": 60
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>kmriiwa_circle_demo</name>
+  <version>0.1.0</version>
+  <description>Plan and optionally execute stacked air circles through the existing KMR iiwa MoveIt interface.</description>
+  <maintainer email="maintainer@example.com">KMR iiwa demo maintainers</maintainer>
+  <license>BSD-3-Clause</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>rospy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>moveit_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>kmriiwa_msgs</depend>
+  <exec_depend>moveit_commander</exec_depend>
+  <exec_depend>kmriiwa_bringup</exec_depend>
+  <exec_depend>kmriiwa_moveit</exec_depend>
+  <export/>
+</package>

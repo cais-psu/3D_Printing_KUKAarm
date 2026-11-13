@@ -1,0 +1,16 @@
+{
+  "devices": [
+    {
+      "name": "bed",
+      "kind": "bed",
+      "endpoint": "tcp://192.168.1.11:8888",
+      "max_c": 60
+    },
+    {
+      "name": "nozzle",
+      "kind": "nozzle",
+      "endpoint": "tcp://192.168.1.10:8888",
+      "max_c": 230
+    }
+  ]
+}

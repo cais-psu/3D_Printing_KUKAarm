@@ -1,0 +1,16 @@
+{
+  "devices": [
+    {
+      "name": "bed",
+      "kind": "bed",
+      "endpoint": "serial:/dev/serial/by-id/REPLACE_WITH_BED_ID",
+      "max_c": 60
+    },
+    {
+      "name": "nozzle",
+      "kind": "nozzle",
+      "endpoint": "serial:/dev/serial/by-id/REPLACE_WITH_NOZZLE_ID",
+      "max_c": 80
+    }
+  ]
+}

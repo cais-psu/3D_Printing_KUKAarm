@@ -1,0 +1,33 @@
+<launch>
+  <arg name="robot_name" default="kmriiwa"/>
+  <arg name="robot_namespace" default="/$(arg robot_name)"/>
+  <arg name="move_group_name" default="$(arg robot_name)_manipulator"/>
+  <arg name="robot_description" default="$(arg robot_namespace)/robot_description"/>
+  <arg name="reference_frame" default="$(arg robot_name)_link_0"/>
+  <arg name="ee_link" default="$(arg robot_name)_link_ee"/>
+  <arg name="config" default="$(find kmriiwa_circle_demo)/config/demo.yaml"/>
+  <arg name="radius" default="0.02"/>
+  <arg name="layers" default="3"/>
+  <arg name="layer_step" default="0.005"/>
+  <arg name="plane" default="xy"/>
+  <arg name="execute" default="false"/>
+  <arg name="keep_alive" default="true"/>
+  <arg name="bed_preview_file" default=""/>
+  <!-- Only the demo node; this never launches robot bringup/navigation. -->
+  <node pkg="kmriiwa_circle_demo" type="circle_demo_node.py" name="kmriiwa_circle_demo" output="screen" required="true">
+    <rosparam command="load" file="$(arg config)"/>
+    <param name="robot_name" value="$(arg robot_name)"/>
+    <param name="robot_namespace" value="$(arg robot_namespace)"/>
+    <param name="move_group_name" value="$(arg move_group_name)"/>
+    <param name="robot_description" value="$(arg robot_description)"/>
+    <param name="reference_frame" value="$(arg reference_frame)"/>
+    <param name="ee_link" value="$(arg ee_link)"/>
+    <param name="radius" value="$(arg radius)"/>
+    <param name="layers" value="$(arg layers)"/>
+    <param name="layer_step" value="$(arg layer_step)"/>
+    <param name="plane" value="$(arg plane)"/>
+    <param name="execute" value="$(arg execute)"/>
+    <param name="keep_alive" value="$(arg keep_alive)"/>
+    <param name="bed_preview_file" type="str" value="$(arg bed_preview_file)"/>
+  </node>
+</launch>

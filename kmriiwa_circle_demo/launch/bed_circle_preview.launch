@@ -1,0 +1,11 @@
+<launch>
+  <arg name="robot_name" default="kmriiwa"/>
+  <arg name="bed_preview_file" default="$(find kmriiwa_circle_demo)/config/bed_preview.json"/>
+  <arg name="keep_alive" default="true"/>
+  <include file="$(find kmriiwa_circle_demo)/launch/circle_demo.launch">
+    <arg name="robot_name" value="$(arg robot_name)"/>
+    <arg name="bed_preview_file" value="$(arg bed_preview_file)"/>
+    <arg name="keep_alive" value="$(arg keep_alive)"/>
+    <arg name="execute" value="false"/>
+  </include>
+</launch>
